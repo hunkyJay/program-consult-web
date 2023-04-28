@@ -3,16 +3,16 @@ A platform that provides advice and consulting services for programming learners
 
 
 # How the run
-1.Make sure you can set the environmental value:
-program_learnning_path=the root folder of the program!
-2.Please Install Tomcat9
-The war package of the system will be deployed in Tomcat!
-3.Please Install Gradle7.2:
-To install the denpdencies and pack the project to war!
-4.Please Install JDK1.8:
-This is quite important
-5.Please instal mysql, create program_learning database and build the tables:
-In this folder named "database", you can see the sql files which can be used to create tables
+1.Make sure you can set the environmental value:<br>
+  program_learnning_path=the root folder of the program!<br>
+2.Please Install Tomcat9<br>
+The war package of the system will be deployed in Tomcat!<br>
+3.Please Install Gradle7.2: <br>
+To install the denpdencies and pack the project to war!<br>
+4.Please Install JDK1.8:<br>
+This is quite important <br>
+5.Please instal mysql, create program_learning database and build the tables:<br>
+In this folder named "database", you can see the sql files which can be used to create tables<br>
 
 ### Your Role
 You can login in system as student, mentor and administrator.
