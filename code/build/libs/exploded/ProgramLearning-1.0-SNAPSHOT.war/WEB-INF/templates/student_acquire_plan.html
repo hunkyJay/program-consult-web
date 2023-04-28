@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>ProgramLearning</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/icofont.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
+	<link rel="stylesheet" id="theme-change" type="text/css" href="">
+</head>
+
+
+<body>
+	<div class="loader">
+	  <div class="spinner">
+		<img th:src="@{/static/picture/loader.gif}" alt="">
+	  </div> 
+	</div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+         <header class="header-wrapper main-header">
+            <div class="header-inner-wrapper">
+                <div class="logo-wrapper">
+                    <h3 style="color: white">Program Learning</h3>
+                </div>
+                <div class="header-right">
+                    <div class="serch-wrapper">
+                        <form>
+                            <input type="text" placeholder="Search Here...">
+                        </form>
+                        <a class="search-close" href="javascript:void(0);"><span class="icofont-close-line"></span></a>
+                    </div>
+                    <div class="header-left">
+                        <div class="header-links">
+                            <a href="javascript:void(0);" class="toggle-btn">
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-controls">
+                        
+                        <div class="user-info-wrapper header-links">
+                            <a href="javascript:void(0);" class="user-info">
+                                <img th:src="@{'/static/picture/'+${student.img}}" alt="" class="user-img">
+                                <div class="blink-animation">
+                                    <span class="blink-circle"></span>
+                                    <span class="main-circle"></span>
+                                </div>
+                            </a>
+                            <div class="user-info-box">
+                                <div class="drop-down-header">
+                                    <h4 th:text="${student.name}"></h4>
+        
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a th:href="@{/student/updateProfile}">
+                                            <i class="far fa-edit"></i> Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/student/doLogout}">
+                                            <i class="fas fa-sign-out-alt"></i> logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Sidebar Start -->
+        <aside class="sidebar-wrapper">
+            <div class="side-menu-wrap">
+                <ul class="main-menu">
+                      <li>
+                          <a th:href="@{/student/}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </span>
+                            <span class="menu-text">
+                                Homepage
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="active">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            </span>
+                            <span class="menu-text">
+                                Recommend Plan
+                            </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a th:href="@{/student/acquirePlan}">
+                                    <span class="icon-dash">
+                                    </span>
+                                    <span class="menu-text">
+                                        acquire plan
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/student/checkPlan}">
+                                    <span class="icon-dash">
+                                    </span>
+                                    <span class="menu-text">
+                                        check plan
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/student/checkMentor}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </span>
+                            <span class="menu-text">
+                                Mentors
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/student/appointments}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </span>
+                            <span class="menu-text">
+                                Appointment
+                            </span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a th:href="@{/student/feedbacks}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </span>
+                            <span class="menu-text">
+                                Feedback
+                            </span>
+                        </a>
+                    </li>    
+             
+                </ul>
+            </div>
+        </aside>
+
+          <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <!-- Page Title Start -->
+                <div class="row">
+                    <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Acquire Recommended Plan</h4>
+                                <small style="color:gray">Please select what you have learned, if none, submit directly</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="product-detail-wrapper product-detail-wrapper22">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="product-detail-tab">
+                                <ul class="nav nav-tabs">
+                                    <li><a data-toggle="tab" class="active" href="#Java">Java</a></li>
+                                    <li><a data-toggle="tab" href="#Python">Python </a></li>
+                                    <li><a data-toggle="tab" href="#CLanguage">C Language</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="Java" class="tab-pane fade show active">
+                                        <div class="int-tab-peragraph">
+                                            <form th:action="@{/student/doAcquireJavaPlan}" method="post">
+                                             <table class="table table-inbox table-hover">
+                                                <tbody>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="JavaSE" type="checkbox" name="JavaSE">
+                                                                <label for="JavaSE"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">JavaSE</td>
+                                                        <td class="subject">Java SE is the core and foundation of Java technology</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="JavaWeb" type="checkbox" name="JavaWeb">
+                                                                <label for="JavaWeb"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">JavaWeb</td>
+                                                        <td class="subject">JavaWeb is a technology stack that uses Java technology to solve related web Internet fields</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="MySQL" type="checkbox" name="MySQL">
+                                                                <label for="MySQL"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">MySQL</td>
+                                                        <td class="subject">MySQL is a relational database management system</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="SpringMVC" type="checkbox" name="SpringMVC">
+                                                                <label for="SpringMVC"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">SpringMVC</td>
+                                                        <td class="subject">The Spring framework provides a full-featured MVC module for building Web applications</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="MyBatis" type="checkbox" name="MyBatis">
+                                                                <label for="MyBatis"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">MyBatis</td>
+                                                        <td class="subject">MyBatis is a persistence layer framework that supports customized SQL, stored procedures, and advanced mapping</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="SpringBoot" type="checkbox" name="SpringBoot">
+                                                                <label for="SpringBoot"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">SpringBoot</td>
+                                                        <td class="subject">Spring Boot is a tool to start Spring projects and a collection of libraries</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="Linux" type="checkbox" name="Linux">
+                                                                <label for="Linux"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Linux</td>
+                                                        <td class="subject">Linux is a POSIX based multi-user, multitasking, multi-threaded and multi CPU operating system
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="JVM" type="checkbox" name="JVM">
+                                                                <label for="JVM"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">JVM</td>
+                                                        <td class="subject">The virtual processor between the java compiler and the os platform can execute bytecode programs on it</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="SpringCloud" type="checkbox" name="SpringCloud">
+                                                                <label for="SpringCloud"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Spring Cloud</td>
+                                                        <td class="subject">Spring Cloud is an orderly collection of a series of frameworks. It uses the development convenience of Spring Boot to ingeniously simplify the development of distributed system infrastructure
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="JavaMiddleware" type="checkbox" name="JavaMiddleware">
+                                                                <label for="JavaMiddleware"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Java Middleware</td>
+                                                        <td class="subject">RabbitMQ,Redis,MongoDB,Kafka,Nginx,Git,Docker</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div>
+                                                 <button type="submit" class="ad-btn ad-login-member">Acquire Plan</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div id="Python" class="tab-pane fade">
+                                        <div class="int-tab-peragraph">
+                                            <form th:action="@{/student/doAcquirePythonPlan}" method="post">
+                                           <table class="table table-inbox table-hover">
+                                                <tbody>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="PythonBasics" type="checkbox" name="PythonBasics">
+                                                                <label for="PythonBasics"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Python Basics</td>
+                                                        <td class="subject">Python syntax,String parsing,Concurrent programming,Functional programming,Modular</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="PythonLinux" type="checkbox" name="PythonLinux">
+                                                                <label for="PythonLinux"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Linux</td>
+                                                        <td class="subject">Linux is a POSIX based multi-user, multitasking, multi-threaded and multi CPU operating system
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="Database" type="checkbox" name="Database">
+                                                                <label for="Database"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Database</td>
+                                                        <td class="subject">Mainly master the design of relational database tables, and the preparation of SQL statements for adding, deleting, modifying, and checking all kinds of databases</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="PythonWebFrontEnd" type="checkbox" name="PythonWebFrontEnd">
+                                                                <label for="PythonWebFrontEnd"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Python Web Front-end</td>
+                                                        <td class="subject">HTML,CSS,Bootstrap,JQuery</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="PythonWebBackEnd" type="checkbox" name="PythonWebBackEnd">
+                                                                <label for="PythonWebBackEnd"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Python Web Back-end</td>
+                                                        <td class="subject">Django web framework,Nginx,RESTful interface,Flask framework</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="DataAnalytics" type="checkbox" name="DataAnalytics">
+                                                                <label for="DataAnalytics"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Data Analytics</td>
+                                                        <td class="subject">Python crawler knowledge,mathematics,numpy/pandas/matplotlib, data visualization</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="ArtificialIntelligence" type="checkbox" name="ArtificialIntelligence">
+                                                                <label for="ArtificialIntelligence"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Artificial Intelligence</td>
+                                                        <td class="subject">Machine Learning, Deep Learning</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                             <div>
+                                                 <button type="submit" class="ad-btn ad-login-member">Acquire Plan</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div id="CLanguage" class="tab-pane fade">
+                                        <div class="int-tab-peragraph">
+                                            <form th:action="@{/student/doAcquireCPlan}" method="post">
+                                            <table class="table table-inbox table-hover">
+                                                <tbody>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="CBasic" type="checkbox" name="CBasic">
+                                                                <label for="CBasic"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">C Language Basics</td>
+                                                        <td class="subject">Programming Desgin,Algorithm,Operator, Sequential,Branch,Loop Structure</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="CProficiency" type="checkbox" name="CProficiency">
+                                                                <label for="CProficiency"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">C language Proficiency</td>
+                                                        <td class="subject">Array,function string,character,pointer, construction type,preprocessing, storage management,file operation, data structure
+                                                        </td>
+                                                    </tr>
+                                                       <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="CPlusBasic" type="checkbox" name="CPlusBasic">
+                                                                <label for="CPlusBasic"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">C++ Basics</td>
+                                                        <td class="subject">Object oriented programming,class and object, operator overloading,derived from inheritance, exception handling technology</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="CPlusProficiency" type="checkbox" name="CPlusProficiency">
+                                                                <label for="CPlusProficiency"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">C++ Proficiency</td>
+                                                        <td class="subject">Stl standard template library(container- iterator-algorithm),regular expression, boost standard template library, socket network programming</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="Windows" type="checkbox" name="Windows">
+                                                                <label for="Windows"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Windows Senior Engineer</td>
+                                                        <td class="subject">Win32/mfc Windows Advanced Programming, QT Framework Programming</td>
+                                                    </tr>
+                                                    <tr class="unread clickable-row">
+                                                        <td>
+                                                            <div class="checkbox checkbox-inbox">
+                                                                <input id="CLinux" type="checkbox" name="CLinux">
+                                                                <label for="CLinux"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="name">Linux system application development</td>
+                                                        <td class="subject">Research on Linux kernel architecture,Linux top-level network server development and construction</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                             <div>
+                                                 <button type="submit" class="ad-btn ad-login-member">Acquire Plan</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>      
+        </div>   
+	</div>    
+
+    <!-- Script Start -->
+    <script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/popper.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script th:src="@{/static/js/custom.js}"></script>
+</body>
+
+</html>

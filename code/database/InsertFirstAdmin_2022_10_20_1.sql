@@ -1,0 +1,1 @@
+insert into admin set account='admin123',password='25d55ad283aa400af464c76d713c07ad',name='Wizard',phone=18111111111, email='wche4311@qwe.ccc',create_time='2022-10-12 21:07:58',update_time='2022-10-12 21:07:58';

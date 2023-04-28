@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.programLearning.ssm.mapper.AdminMapper">
+
+    <select id="doLogin" resultType="string">
+        select password from admin where account=#{account}
+    </select>
+
+    <select id="getNumOfFeedback" resultType="_int">
+        select count(*) from feedback
+    </select>
+
+    <select id="getNumOfAppointment" resultType="_int">
+        select count(*) from appointment
+    </select>
+
+    <select id="getNumOfMentor" resultType="_int">
+        select count(*) from mentor
+    </select>
+
+    <select id="getNumOfStudent" resultType="_int">
+        select count(*) from student
+    </select>
+
+    <select id="getAllAppointment" resultType="Appointment">
+        select * from appointment
+    </select>
+
+    <select id="getMentor" resultType="Mentor">
+        select * from mentor where mentorUsername=#{mentorUsername}
+    </select>
+
+    <select id="getAllFeedback" resultType="Feedback">
+        select * from feedback
+    </select>
+
+    <select id="getAllStudent" resultType="Student">
+        select * from student
+    </select>
+
+    <select id="getAllMentor" resultType="Mentor">
+        select * from mentor
+    </select>
+
+    <select id="getAllAppraiseByMenterId" resultType="Appraise">
+        select *
+        from appraise a left join mentor m on a.mentorUsername=m.mentorUsername
+        where m.id=#{mentorId}
+    </select>
+
+    <select id="getAllAppointmentByStudentId" resultType="Appraise">
+        select *
+        from appointment a left join student s on a. studentUsername=s.studentUsername
+        where s.id=#{studentId}
+    </select>
+
+    <select id="getAllPlan" resultType="Plan">
+        select * from studyplan
+    </select>
+
+    <select id="getFeedback" resultType="Feedback">
+        select * from feedback
+        where feedbackId=#{feedbackId}
+    </select>
+
+    <update id="updateFeedbackState">
+        update feedback
+        set isCheck=#{state}
+        where feedbackId=#{feedbackId}
+    </update>
+
+    <select id="getPlan" resultType="Plan">
+        select * from studyplan
+        where planId=#{planId}
+    </select>
+
+    <select id="getPlanLatestFeedback" resultType="int">
+        SELECT feedbackId FROM feedback
+        WHERE createTime=(SELECT MAX(createTime) FROM feedback WHERE planId=#{planId})
+    </select>
+
+    <update id="updatePlanContent">
+        update studyplan
+        set planContent=#{planContent}
+        where planId=#{planId}
+    </update>
+
+    <select id="getAppraise" resultType="Appraise">
+        select * from appraise
+        where appraiseId=#{appraiseId}
+    </select>
+
+
+    <!--    <select id="getAllFeedbacks" resultType="Feedback">-->
+<!--        select * from feedback-->
+<!--    </select>-->
+
+<!--    <select id="selectFeedbackById" resultType="Feedback">-->
+<!--        select * from feedback where id=#{feedbackId}-->
+<!--    </select>-->
+
+<!--    <select id="getAllAppointments" resultType="Appointment">-->
+<!--        select * from appointment-->
+<!--    </select>-->
+
+<!--    <select id="selectAppointmentById" resultType="Appointment">-->
+<!--        select * from appointment where id=#{appointmentId}-->
+<!--    </select>-->
+
+<!--    <update id="updateFeedbackState">-->
+<!--        update appointment set isCheck=1 where id=#{feedbackId}-->
+<!--    </update>-->
+
+<!--    <select id="getAllPlans" resultType="Plan">-->
+<!--        select * from studyplan-->
+<!--    </select>-->
+
+<!--    <select id="selectPlanById" resultType="Plan">-->
+<!--        select * from studyplan where id=#{planId}-->
+<!--    </select>-->
+
+</mapper>

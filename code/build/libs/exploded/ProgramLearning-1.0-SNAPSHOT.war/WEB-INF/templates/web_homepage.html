@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>ProgramLearning</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/auth.css}">
+</head>
+
+<body>
+    <div class="ad-auth-wrapper">
+        <div class="ad-auth-box">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="ad-auth-img">
+                        <img th:src="@{/static/picture/auth-img1.png}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="ad-auth-content">
+                       
+                            <h3>Program Learning</h3>
+                            <h2><span class="primary">Hello,</span>Welcome!</h2>
+                            <p>Please Select Your Roles</p>
+                            <div class="ad-auth-btn">
+                                <a th:href="@{/student/login/}" class="ad-btn ad-login-member">Student</a>
+                            </div>
+                    
+                            <div class="ad-auth-btn">
+                                <a th:href="@{/mentor/login/}" class="ad-btn ad-login-member">Mentor</a>
+                            </div>
+                             <div class="ad-auth-btn">
+                                <a th:href="@{/admin/login/}" class="ad-btn ad-login-member">Admin</a>
+                            </div>
+                           
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="ad-notifications ad-error">
+                <p><span>Duhh!</span>Something Went Wrong</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

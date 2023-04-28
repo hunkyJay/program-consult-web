@@ -1,0 +1,2 @@
+INSERT INTO `program_learning`.`admin`(`account`, `password`, `name`, `phone`, `email`, `create_time`, `update_time`) VALUES ('admin123', '25d55ad283aa400af464c76d713c07ad', 'Wizard', '18111111111', 'wche4311@qwe.ccc', '2022-10-12 21:07:58', '2022-10-12 21:07:58');
+# Use this command to create the first admin for the sql version grater than 5.7

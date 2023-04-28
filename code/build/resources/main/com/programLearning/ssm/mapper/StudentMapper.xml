@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.programLearning.ssm.mapper.StudentMapper">
+
+    <select id="studentSelect" resultType="Student">
+        select * from student where studentUsername=#{studentUsername}
+    </select>
+
+    <select id="studentLogin" resultType="string">
+        select password from student where studentUsername=#{studentUsername}
+    </select>
+
+    <insert id="studentRegister">
+        insert into student (`studentUsername`, `password`, `name`,`email`) VALUES (#{studentUsername}, #{password}, #{name}, #{email} );
+    </insert>
+
+    <update id ="studentUpdate">
+        UPDATE student SET `name`=#{name}, `email`=#{email} WHERE (`studentUsername`=#{studentUsername});
+    </update>
+
+    <select id="checkPlan" resultType="Plan">
+      select * from studyPlan where studentUsername=#{studentUsername}
+    </select>
+
+    <select id="checkPlanByKeyword" resultType="Plan">
+        select * from studyPlan where studentUsername=#{studentUsername} and planContent REGEXP #{keyword}
+    </select>
+
+    <select id="getPlan" resultType="Plan">
+        select * from studyPlan where planId=#{planId} order by createTime desc
+    </select>
+
+    <insert id="givePlanFeedback">
+        insert into feedback (`feedbackId`, `feedbackUsername`, `planId`,`content`,`isCheck`,`createTime`,`updateTime`) VALUES (#{feedbackId}, #{feedbackUsername}, #{planId}, #{content},#{isCheck},#{createTime},#{updateTime});
+    </insert>
+
+    <select id="checkMentor" resultType="Mentor">
+        select * from mentor
+    </select>
+
+    <select id="checkMentorByKeyword" resultType="Mentor">
+        select * from mentor where introduction like concat('%',#{keyword,jdbcType=VARCHAR},'%')
+    </select>
+
+    <select id="getMentor" resultType="Mentor">
+        select * from mentor where mentorUsername=#{mentorUsername}
+    </select>
+
+    <select id="checkMentorAppraise" resultType="Appraise">
+        select * from appraise where mentorUsername=#{mentorUsername}
+    </select>
+
+    <insert id="giveAppraise">
+        insert into appraise (`appraiseId`, `appointmentId`, `mentorUsername`,`content`,`createTime`,`updateTime`) VALUES (#{appraiseId}, #{appointmentId}, #{mentorUsername}, #{content},#{createTime},#{updateTime});
+    </insert>
+
+    <select id="getAppointment" resultType="Appointment">
+        select * from appointment where appointmentId=#{appointmentId}
+    </select>
+
+    <select id="getAllAppointment" resultType="Appointment">
+        select * from appointment where studentUsername=#{studentUsername}
+    </select>
+
+    <select id="getAllFeedback" resultType="Feedback">
+        select * from feedback where feedbackUsername=#{studentUsername}
+    </select>
+
+    <insert id="makeAppointment">
+        insert into appointment (`appointmentId`, `studentUsername`, `mentorUsername`, `appointmentTime`,`status`,`createTime`,`updateTime`) VALUES (#{appointmentId}, #{studentUsername}, #{mentorUsername}, #{appointmentTime}, #{status},#{createTime},#{updateTime});
+    </insert>
+
+    <update id ="cancelAppointment">
+        UPDATE appointment SET `status` = 3,`updateTime`=#{updateTime}  WHERE (`appointmentId`=#{appointmentId});
+    </update>
+
+    <update id ="setAppointmentAppraised">
+        UPDATE appointment SET `status` = 5,`updateTime`=#{updateTime}  WHERE (`appointmentId`=#{appointmentId});
+    </update>
+
+    <insert id="addPlan">
+        insert into studyPlan (`planId`,`studentUsername`, `languageType`,`selfCondition`, `planContent`,`createTime`,`updateTime`) VALUES (#{planId}, #{studentUsername}, #{languageType}, #{selfCondition}, #{planContent},#{createTime},#{updateTime});
+    </insert>
+
+    <update id="saveImg">
+        UPDATE student SET `img`=#{img} WHERE (`studentUsername`=#{studentUsername});
+    </update>
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PL2">
+    <output-path>$PROJECT_DIR$/out/artifacts/PL2</output-path>
+    <root id="archive" name="PL2.war">
+      <element id="artifact" artifact-name="Gradle : org.example : ProgramLearning-1.0-SNAPSHOT.war (exploded)" />
+    </root>
+  </artifact>
+</component>

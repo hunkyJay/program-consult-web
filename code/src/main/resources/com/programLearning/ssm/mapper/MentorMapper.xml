@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.programLearning.ssm.mapper.MentorMapper">
+
+    <select id="mentorSelect" resultType="Mentor">
+        select * from mentor where mentorUsername=#{mentorUsername}
+    </select>
+
+    <select id="studentSelect" resultType="Student">
+        select * from student where studentUsername=#{studentUsername}
+    </select>
+
+    <select id="mentorLogin" resultType="string">
+        select password from mentor where mentorUsername=#{mentorUsername}
+    </select>
+
+    <insert id="mentorRegister">
+        insert into mentor (`name`, `mentorUsername`, `password`,`email`) VALUES (#{name}, #{mentorUsername}, #{password}, #{email} );
+    </insert>
+
+    <update id ="mentorUpdate">
+        UPDATE mentor SET `name`=#{name},`email`=#{email},`introduction`=#{introduction} WHERE (`mentorUsername`=#{mentorUsername});
+    </update>
+
+    <select id="checkPlan" resultType="Plan">
+        select * from studyPlan where studentUsername=#{studentUsername}
+    </select>
+
+    <select id="getAllAppointment" resultType="Appointment">
+        select * from appointment where mentorUsername=#{mentorUsername}
+    </select>
+
+    <select id="getAppointmentByStatus" resultType="Appointment">
+        select * from appointment where mentorUsername=#{mentorUsername} and status=#{status}
+    </select>
+
+    <update id ="appointmentUpdate">
+        UPDATE appointment SET `status`=#{status},`updateTime`=#{updateTime} WHERE (`appointmentId`=#{appointmentId});
+    </update>
+
+    <update id ="addMeetingUrl">
+        UPDATE appointment SET `meetingUrl`=#{meetingUrl} WHERE (`appointmentId`=#{appointmentId});
+    </update>
+
+    <select id="checkAppraise" resultType="Appraise">
+        select * from appraise where mentorUsername=#{mentorUsername}
+    </select>
+
+    <update id="saveImg">
+        UPDATE mentor SET `img`=#{img} WHERE (`mentorUsername`=#{mentorUsername});
+    </update>
+
+</mapper>

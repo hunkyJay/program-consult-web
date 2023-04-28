@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--[if !IE]><!-->
+<html lang="zxx">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>ProgramLearning</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/fonts.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/icofont.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
+    <link rel="stylesheet" id="theme-change" type="text/css" href="">
+</head>
+
+
+<body>
+	<div class="loader">
+	  <div class="spinner">
+		<img th:src="@{/static/picture/loader.gif}" alt="">
+	  </div> 
+	</div>
+    <!-- Main Body -->
+    <div class="page-wrapper">
+        <!-- Header Start -->
+         <header class="header-wrapper main-header">
+            <div class="header-inner-wrapper">
+                <div class="logo-wrapper">
+                    <a href="admin_homepage.html" class="admin-logo">
+                        <h3 style="color: white">Program Learning</h3>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <div class="serch-wrapper">
+                        <form>
+                            <input type="text" placeholder="Search Here...">
+                        </form>
+                        <a class="search-close" href="javascript:void(0);"><span class="icofont-close-line"></span></a>
+                    </div>
+                    <div class="header-left">
+                        <div class="header-links">
+                            <a href="javascript:void(0);" class="toggle-btn">
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-controls">
+                        
+                        <div class="user-info-wrapper header-links">
+                            <a href="javascript:void(0);" class="user-info">
+                                <img th:src="@{'/static/picture/'+${student.img}}" alt="" class="user-img">
+                                <div class="blink-animation">
+                                    <span class="blink-circle"></span>
+                                    <span class="main-circle"></span>
+                                </div>
+                            </a>
+                            <div class="user-info-box">
+                                <div class="drop-down-header">
+                                    <h4 th:text="${student.name}"></h4>
+        
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a th:href="@{/student/updateProfile}">
+                                            <i class="far fa-edit"></i> Edit Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/student/doLogout}">
+                                            <i class="fas fa-sign-out-alt"></i> logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Sidebar Start -->
+        <aside class="sidebar-wrapper">
+            <div class="side-menu-wrap">
+                <ul class="main-menu">
+                      <li>
+                          <a th:href="@{/student/}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </span>
+                            <span class="menu-text">
+                                Homepage
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="active">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            </span>
+                            <span class="menu-text">
+                                Recommend Plan
+                            </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a th:href="@{/student/acquirePlan}">
+                                    <span class="icon-dash">
+                                    </span>
+                                    <span class="menu-text">
+                                        acquire plan
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/student/checkPlan}">
+                                    <span class="icon-dash">
+                                    </span>
+                                    <span class="menu-text">
+                                        check plan
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/student/checkMentor}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </span>
+                            <span class="menu-text">
+                                Mentors
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a th:href="@{/student/appointments}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </span>
+                            <span class="menu-text">
+                                Appointment
+                            </span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a th:href="@{/student/feedbacks}">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </span>
+                            <span class="menu-text">
+                                Feedback
+                            </span>
+                        </a>
+                    </li>
+                    
+                   
+                   
+             
+                </ul>
+            </div>
+        </aside>
+
+         <!-- Container Start -->
+        <div class="page-wrapper">
+            <div class="main-content">
+                <!-- Page Title Start -->
+                 <div class="row">
+                    <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-title-wrapper">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Mentor Appointment</h4>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!--===single Section Start===-->
+                <div class="int-product-single">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="product-item">
+                                <img th:src="@{'/static/picture/'+${mentor.img}}" alt="product-img">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-12">
+                            <small style="color: red" th:text="${msg}"> </small>
+                            <div class="int-price-detail">
+                                <h1 th:text="${mentor.name}"> </h1>
+                                <ul>
+
+                                </ul>
+                            </div>
+                            <form th:action="@{/student/doAppointment}" method="post" onsubmit="return checkForm()" >
+                                <div class="int-price-detail">
+                                    <input type="hidden" id="mentorUsername" name="mentorUsername"  th:value="${mentor.mentorUsername}" class="ad-input" >
+                                </div>
+                                <div class="int-price-detail">
+                                    </br>
+                                    </br>
+                                    <input type="datetime-local" id="appointmentTime" name="appointmentTime">
+                                    <small class="error-message" style="color: red"></small>
+                                </div>
+                                <div>
+                                    </br>
+                                    </br>
+                                    <button type="submit" class="ad-btn ad-login-member">Make Appointment</button>
+                                </div>
+                             </form>
+                        </div>
+                    </div>
+                                
+                </div>
+                <!--===single Section End===-->
+
+            </div>         
+        </div>
+
+	</div>    
+
+    <!-- Script Start -->
+    <script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/popper.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+    <script th:src="@{/static/js/custom.js}"></script>
+</body>
+
+<script>
+    const appointmentTime = document.getElementById("appointmentTime");
+    function checkForm() {
+        const err =[];
+        const appointmentTimeValue = appointmentTime.value
+        if( new Date(appointmentTimeValue).getTime()-new Date().getTime() < 0 ){
+            setError(appointmentTime,"must be over the current time")
+            err.push("error")
+            return false
+        }else {
+            removeError(appointmentTime)
+            return true
+        }
+    }
+
+    function setError(element,msg){
+        const element_par = element.parentElement;
+        const errMsg = element_par.querySelector('.error-message');
+        errMsg.textContent = msg
+    }
+
+    function removeError(element){
+        const element_par = element.parentElement;
+        const errMsg = element_par.querySelector('.error-message');
+        errMsg.textContent = ' '
+    }
+
+</script>
+
+</html>
