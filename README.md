@@ -4,7 +4,7 @@ A platform that provides advice and consulting services for programming learners
 
 # How the run
 1.Make sure you can set the environmental value:<br>
-  program_learnning_path=the root folder of the program!<br>
+`program_learnning_path=the root folder of the program!`
 2.Please Install Tomcat9<br>
 The war package of the system will be deployed in Tomcat!<br>
 3.Please Install Gradle7.2: <br>
