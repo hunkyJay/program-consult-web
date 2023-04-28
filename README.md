@@ -1,6 +1,7 @@
 # program-consult-web
 A platform that provides advice and consulting services for programming learners.
 
+![Welcome page](./imgs/welcome.png)
 
 # How the run
 - Make sure you can set the environmental value:<br>
